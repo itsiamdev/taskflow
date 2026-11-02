@@ -1,7 +1,13 @@
 import Footer from "./Footer.jsx";
 import Header from "./Header.jsx";
 
-export default function ResourcePageLayout({ kicker, title, description, children }) {
+export default function ResourcePageLayout({
+  kicker,
+  title,
+  description,
+  children,
+  showDemoNote = true,
+}) {
   return (
     <>
       <Header />
@@ -16,11 +22,13 @@ export default function ResourcePageLayout({ kicker, title, description, childre
             <p>{description}</p>
           </header>
           {children}
-          <aside className="resource-demo-note">
-            TaskFlow is currently a frontend concept. These guides describe the
-            demo and illustrate how a future product could work; features such
-            as accounts and saved tasks are not active.
-          </aside>
+          {showDemoNote && (
+            <aside className="resource-demo-note">
+              TaskFlow is currently a frontend concept. These guides describe
+              the demo and illustrate how a future product could work; features
+              such as accounts and saved tasks are not active.
+            </aside>
+          )}
         </div>
       </main>
       <Footer />

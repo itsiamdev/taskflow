@@ -49,6 +49,7 @@ export default function DocumentationPage() {
       kicker="TASKFLOW / DOCUMENTATION"
       title="A guide to the workspace."
       description="Learn what the dashboard previews and how its example sections are intended to fit together."
+      showDemoNote={false}
     >
       <div className="documentation-layout">
         <nav className="documentation-nav" aria-label="Documentation sections">
