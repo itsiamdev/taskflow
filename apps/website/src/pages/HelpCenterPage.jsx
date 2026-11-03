@@ -39,6 +39,7 @@ export default function HelpCenterPage() {
       kicker="TASKFLOW / HELP CENTER"
       title="How can we help?"
       description="Answers to common questions about the TaskFlow concept and what you can do with this demo."
+      showDemoNote={false}
     >
       <section className="resource-faq" aria-label="Frequently asked questions">
         {questions.map(({ question, answer }, index) => (
