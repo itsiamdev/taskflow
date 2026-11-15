@@ -11,6 +11,13 @@
     "preview": {
       "distribution": "internal"
     },
+    "download": {
+      "extends": "production",
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      }
+    },
     "production": {
       "environment": "production",
       "distribution": "store",

@@ -98,7 +98,8 @@ export default function GetStartedPage() {
                 Choose where to <span>begin.</span>
               </h2>
               <p>
-                Take a look at the web demo today. Mobile apps are on their way.
+                Explore the web preview or download TaskFlow for Android and
+                install it directly on your device.
               </p>
             </div>
             <div className="download-options">
@@ -115,7 +116,10 @@ export default function GetStartedPage() {
                 </span>
                 <span className="download-option-action">Open demo <b aria-hidden="true">↗</b></span>
               </a>
-              <button className="download-option" type="button" disabled>
+              <a
+                className="download-option"
+                href="https://github.com/itsiamdev/taskflow/releases/latest/download/taskflow.apk"
+              >
                 <span className="download-option-icon play-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24">
                     <path className="play-main" d="M5.2 3.8c-.4.3-.7.8-.7 1.5v13.4c0 .7.3 1.2.7 1.5l8-8.2-8-8.2Z" />
@@ -126,11 +130,11 @@ export default function GetStartedPage() {
                   </svg>
                 </span>
                 <span className="download-option-copy">
-                  <small>ANDROID</small>
-                  <strong>Google Play</strong>
+                  <small>ANDROID · APK</small>
+                  <strong>Download TaskFlow</strong>
                 </span>
-                <span className="download-option-action">Coming soon</span>
-              </button>
+                <span className="download-option-action">Download APK <b aria-hidden="true">↓</b></span>
+              </a>
               <button className="download-option" type="button" disabled>
                 <span className="download-option-icon apple-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none">
@@ -166,8 +170,9 @@ export default function GetStartedPage() {
           </section>
 
           <p className="getting-started-notice">
-            TaskFlow is currently a concept demo. Creating an account and saving
-            tasks are not available in this version.
+            The Android download is served from the latest GitHub Release and
+            becomes available once its APK is published. Your tasks and habits
+            are stored locally on your device.
           </p>
         </div>
       </main>

@@ -14,12 +14,12 @@ const questions = [
   {
     question: "Are the Android and iOS apps available?",
     answer:
-      "Not yet. The Google Play and App Store options are previews only and are marked as coming soon. There are no mobile app downloads available from this website.",
+      "The Get Started page links to the Android APK, which can be installed directly on your device after it is published in a GitHub Release. An iOS App Store release is not available yet.",
   },
   {
     question: "Can I view the website on my phone?",
     answer:
-      "Yes. The website layout adapts to phone, tablet, and desktop screens. This responsive website is separate from the planned mobile apps.",
+      "Yes. The website layout adapts to phone, tablet, and desktop screens. It is separate from the Android mobile app.",
   },
   {
     question: "What do the priority and progress indicators mean?",

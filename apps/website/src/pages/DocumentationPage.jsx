@@ -37,8 +37,8 @@ const sections = [
     id: "platforms",
     title: "Access and platforms",
     paragraphs: [
-      "The web option opens the responsive website demo. The Android and iOS store buttons are placeholders because no mobile app listings are available yet.",
-      "This website does not currently offer user accounts, cloud sync, or offline task management.",
+      "The Get Started page links to the Android APK in the latest GitHub Release. Once published, download it on your device and follow Android's installation prompt. The iOS App Store release is not available yet.",
+      "The mobile app stores tasks and habits locally on the device; it does not currently provide account-based cloud sync.",
     ],
   },
 ];

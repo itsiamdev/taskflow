@@ -26,6 +26,22 @@ npm run android
 If Expo is already running, press `a` in its terminal to open the Android
 emulator.
 
+## Publish the Android download
+
+The website's Android download points to the `taskflow.apk` asset on the
+repository's latest GitHub Release. Build a signed, directly installable APK
+from `apps\mobile` with an authenticated EAS account:
+
+```powershell
+npx eas-cli@latest build --profile download --platform android
+```
+
+When the EAS build finishes, download its APK and attach it to a published
+GitHub Release with the exact asset name `taskflow.apk`. The website download
+will serve that APK from the latest release; it is not available until the
+asset has been published. Each build increments Android's version code so
+users can install future releases as updates.
+
 ## Development
 
 Run these commands from `apps\mobile`:
