@@ -121,13 +121,7 @@ export default function GetStartedPage() {
                 href="https://github.com/itsiamdev/taskflow/releases/latest/download/taskflow.apk"
               >
                 <span className="download-option-icon play-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24">
-                    <path className="play-main" d="M5.2 3.8c-.4.3-.7.8-.7 1.5v13.4c0 .7.3 1.2.7 1.5l8-8.2-8-8.2Z" />
-                    <path className="play-blue" d="m5.2 3.8 9.5 5.7 3.1-3.1-10.2-3.8c-.9-.3-1.8.2-2.4 1.2Z" />
-                    <path className="play-green" d="m5.2 20.2 9.5-5.7 3.1 3.1-10.2 3.8c-.9.3-1.8-.2-2.4-1.2Z" />
-                    <path className="play-yellow" d="m14.7 9.5 3.1-3.1 2.6 1.5c1.2.7 1.2 2.5 0 3.2l-2.6 1.5-3.1-3.1Z" />
-                    <path className="play-red" d="m14.7 14.5 3.1 3.1 2.6-1.5c1.2-.7 1.2-2.5 0-3.2l-2.6-1.5-3.1 3.1Z" />
-                  </svg>
+                  <img src="/google-play.png" alt="" />
                 </span>
                 <span className="download-option-copy">
                   <small>ANDROID · APK</small>
