@@ -8,16 +8,22 @@ const steps = [
     number: "01",
     title: "Capture what’s on your mind",
     description: "Bring tasks, ideas, and reminders together in one place.",
+    href: "/app?view=Tasks",
+    action: "Add a task",
   },
   {
     number: "02",
     title: "Choose what matters today",
     description: "Set a clear priority and give your day a little structure.",
+    href: "/app?view=Today",
+    action: "Plan your day",
   },
   {
     number: "03",
     title: "Make steady progress",
     description: "Focus on one thing at a time and notice what you accomplish.",
+    href: "/app?view=Focus",
+    action: "Start a focus session",
   },
 ];
 
@@ -125,8 +131,8 @@ export default function GetStartedPage() {
               A few small steps can turn a busy list into a thoughtful plan.
               Explore how TaskFlow can help you get organized.
             </p>
-            <a className="button button-primary" href="/#features">
-              Explore the features <span aria-hidden="true">↗</span>
+            <a className="button button-primary" href="/app">
+              Open TaskFlow <span aria-hidden="true">↗</span>
             </a>
           </section>
 
@@ -210,11 +216,14 @@ export default function GetStartedPage() {
             </div>
             <div className="getting-started-step-grid">
               {steps.map((step) => (
-                <article className="getting-started-step" key={step.number}>
+                <a className="getting-started-step" href={step.href} key={step.number}>
                   <span className="getting-started-number">{step.number}</span>
                   <h3>{step.title}</h3>
                   <p>{step.description}</p>
-                </article>
+                  <span className="getting-started-step-action">
+                    {step.action} <b aria-hidden="true">↗</b>
+                  </span>
+                </a>
               ))}
             </div>
           </section>

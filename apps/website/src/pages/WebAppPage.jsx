@@ -22,6 +22,13 @@ function loadState() {
   return { tasks: initialTasks, habits: initialHabits, profileName: "" };
 }
 
+function getInitialSection() {
+  const requestedSection = new URLSearchParams(window.location.search).get("view");
+  return ["Today", "Tasks", "Habits", "Focus", "Profile"].includes(requestedSection)
+    ? requestedSection
+    : "Today";
+}
+
 function Icon({ name }) {
   const icons = {
     today: <><path d="m3.5 10 8.5-7 8.5 7" /><path d="M5.5 9v11h13V9M9.5 20v-6h5v6" /></>,
@@ -40,7 +47,7 @@ function Icon({ name }) {
 
 export default function WebAppPage() {
   const [state, setState] = useState(loadState);
-  const [section, setSection] = useState("Today");
+  const [section, setSection] = useState(getInitialSection);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("All");
   const [composer, setComposer] = useState(null);
