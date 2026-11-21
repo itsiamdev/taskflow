@@ -14,7 +14,7 @@ const sections = [
     title: "Tasks and priorities",
     paragraphs: [
       "The mockup illustrates task rows with completion checkboxes, due times, project categories, and high, medium, or low priority labels.",
-      "These controls are visual examples only. The demo does not create, edit, complete, or store real tasks.",
+      "In the web app, you can create, complete, search, filter, and delete tasks. Changes are saved locally in this browser.",
     ],
   },
   {
@@ -22,7 +22,7 @@ const sections = [
     title: "Projects and categories",
     paragraphs: [
       "Sample categories such as Personal, Work, and Learning show one way tasks could be grouped in a future product.",
-      "Project names and labels are not connected to accounts or persistent data.",
+      "Tasks and habits are stored in the browser on this device. They are not synced to an account or other devices.",
     ],
   },
   {
@@ -30,15 +30,16 @@ const sections = [
     title: "Planning and progress",
     paragraphs: [
       "Calendar cards, weekly charts, streaks, and completion indicators are illustrative dashboard components.",
-      "They do not calculate progress from user activity or represent real performance data.",
+      "The web app calculates its task completion progress from your saved tasks; marketing page previews remain illustrative.",
     ],
   },
   {
     id: "platforms",
     title: "Access and platforms",
     paragraphs: [
-      "The Get Started page links to the Android APK in the latest GitHub Release. Once published, download it on your device and follow Android's installation prompt. The iOS App Store release is not available yet.",
-      "The mobile app stores tasks and habits locally on the device; it does not currently provide account-based cloud sync.",
+      "The Get Started page links to the Android APK in the latest GitHub Release. Download it on your device and follow Android's installation prompt. An iOS App Store version is not available.",
+      "On Windows, open Get Started in Microsoft Edge or Chrome and choose Install TaskFlow to add the web app to your desktop. It is available offline after the first successful load.",
+      "The web and mobile apps store tasks and habits locally on the device; account-based cloud sync is not available yet.",
     ],
   },
 ];

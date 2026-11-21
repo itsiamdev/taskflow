@@ -4,27 +4,27 @@ const questions = [
   {
     question: "What is TaskFlow?",
     answer:
-      "TaskFlow is a visual concept for a productivity workspace. This website demonstrates how task planning, project categories, and progress summaries could look in a finished product.",
+      "TaskFlow is a productivity workspace for organizing tasks and daily habits. The web app is available from the Get Started page.",
   },
   {
     question: "How do I create an account or save my tasks?",
     answer:
-      "You can’t do that in this demo. It has no sign-up flow, task database, or save feature, so information entered or shown on the page is not managed as a personal task list.",
+      "Open the web app to add and manage tasks and habits. Your data is saved locally in the browser on this device; account-based cloud sync is not available yet.",
   },
   {
-    question: "Are the Android and iOS apps available?",
+    question: "Can I install TaskFlow on Windows?",
     answer:
-      "The Get Started page links to the Android APK, which can be installed directly on your device after it is published in a GitHub Release. An iOS App Store release is not available yet.",
+      "Yes. Open the Get Started page in Microsoft Edge or Chrome on Windows and choose Install TaskFlow. The installed web app works offline after its first successful load.",
   },
   {
-    question: "Can I view the website on my phone?",
+    question: "Is there an Android app?",
     answer:
-      "Yes. The website layout adapts to phone, tablet, and desktop screens. It is separate from the Android mobile app.",
+      "The Get Started page links to the Android APK in the latest GitHub Release. Follow Android's installation prompt after downloading it.",
   },
   {
     question: "What do the priority and progress indicators mean?",
     answer:
-      "They are illustrative parts of the interface mockup. They do not reflect real tasks, account activity, or measured personal progress.",
+      "In the web app, task priorities and progress are based on the tasks you manage in this browser. The marketing pages also contain illustrative interface previews.",
   },
   {
     question: "Where can I report a question?",

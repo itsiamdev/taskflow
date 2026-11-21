@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Footer from "../components/Footer.jsx";
 import Header from "../components/Header.jsx";
 import BetaCountdownSection from "../components/BetaCountdownSection.jsx";
@@ -60,6 +61,44 @@ function PhonePreviews() {
 }
 
 export default function GetStartedPage() {
+  const [installPrompt, setInstallPrompt] = useState(null);
+  const [appInstalled, setAppInstalled] = useState(false);
+  const [showInstallHelp, setShowInstallHelp] = useState(false);
+
+  useEffect(() => {
+    setAppInstalled(window.matchMedia("(display-mode: standalone)").matches);
+
+    function handleInstallPrompt(event) {
+      event.preventDefault();
+      setInstallPrompt(event);
+    }
+
+    function handleAppInstalled() {
+      setInstallPrompt(null);
+      setAppInstalled(true);
+      setShowInstallHelp(false);
+    }
+
+    window.addEventListener("beforeinstallprompt", handleInstallPrompt);
+    window.addEventListener("appinstalled", handleAppInstalled);
+    return () => {
+      window.removeEventListener("beforeinstallprompt", handleInstallPrompt);
+      window.removeEventListener("appinstalled", handleAppInstalled);
+    };
+  }, []);
+
+  async function handleWindowsInstall() {
+    if (!installPrompt) {
+      setShowInstallHelp((visible) => !visible);
+      return;
+    }
+
+    await installPrompt.prompt();
+    const { outcome } = await installPrompt.userChoice;
+    setInstallPrompt(null);
+    if (outcome === "accepted") setAppInstalled(true);
+  }
+
   return (
     <>
       <Header />
@@ -98,8 +137,8 @@ export default function GetStartedPage() {
                 Choose where to <span>begin.</span>
               </h2>
               <p>
-                Explore the web preview or download TaskFlow for Android and
-                install it directly on your device.
+                Use TaskFlow in your browser, install the Windows desktop app,
+                or download the Android version.
               </p>
             </div>
             <div className="download-options">
@@ -129,19 +168,33 @@ export default function GetStartedPage() {
                 </span>
                 <span className="download-option-action">Download APK <b aria-hidden="true">↓</b></span>
               </a>
-              <button className="download-option" type="button" disabled>
-                <span className="download-option-icon apple-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <path d="m7 19 5-12 5 12M9 14h6M5 21 17 5M19 21 7 5" />
+              <button
+                className="download-option windows-install"
+                type="button"
+                onClick={handleWindowsInstall}
+                aria-expanded={showInstallHelp}
+                aria-controls="windows-install-help"
+              >
+                <span className="download-option-icon windows-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M2 5.2 10.1 4v7.1H2V5.2Zm9.3-1.4L22 2v9.1H11.3V3.8ZM2 12.2h8.1v7.1L2 18.1v-5.9Zm9.3 0H22v9.1l-10.7-1.8v-7.3Z" />
                   </svg>
                 </span>
                 <span className="download-option-copy">
-                  <small>IOS · BETA</small>
-                  <strong>App Store</strong>
+                  <small>WINDOWS · DESKTOP</small>
+                  <strong>{appInstalled ? "TaskFlow installed" : "TaskFlow for Windows"}</strong>
                 </span>
-                <span className="download-option-action">Beta soon</span>
+                <span className="download-option-action">
+                  {appInstalled ? "Installed" : "Install app"} <b aria-hidden="true">{appInstalled ? "✓" : "↓"}</b>
+                </span>
               </button>
             </div>
+            {showInstallHelp && (
+              <p className="windows-install-help" id="windows-install-help" role="status">
+                Open this page in Microsoft Edge or Chrome on Windows, then choose
+                “Install TaskFlow” from the browser menu or install icon in the address bar.
+              </p>
+            )}
           </section>
 
           <section className="getting-started-steps" aria-labelledby="getting-started-title">
