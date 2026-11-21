@@ -68,21 +68,22 @@ export default function GetStartedPage() {
   useEffect(() => {
     setAppInstalled(window.matchMedia("(display-mode: standalone)").matches);
 
-    function handleInstallPrompt(event) {
-      event.preventDefault();
-      setInstallPrompt(event);
+    function handleInstallPromptAvailable() {
+      setInstallPrompt(window.taskflowDeferredInstallPrompt);
     }
 
     function handleAppInstalled() {
+      window.taskflowDeferredInstallPrompt = null;
       setInstallPrompt(null);
       setAppInstalled(true);
       setShowInstallHelp(false);
     }
 
-    window.addEventListener("beforeinstallprompt", handleInstallPrompt);
+    setInstallPrompt(window.taskflowDeferredInstallPrompt);
+    window.addEventListener("taskflowinstallprompt", handleInstallPromptAvailable);
     window.addEventListener("appinstalled", handleAppInstalled);
     return () => {
-      window.removeEventListener("beforeinstallprompt", handleInstallPrompt);
+      window.removeEventListener("taskflowinstallprompt", handleInstallPromptAvailable);
       window.removeEventListener("appinstalled", handleAppInstalled);
     };
   }, []);
@@ -95,6 +96,7 @@ export default function GetStartedPage() {
 
     await installPrompt.prompt();
     const { outcome } = await installPrompt.userChoice;
+    window.taskflowDeferredInstallPrompt = null;
     setInstallPrompt(null);
     if (outcome === "accepted") setAppInstalled(true);
   }
