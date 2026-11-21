@@ -48,6 +48,34 @@ export default function WebAppPage() {
   const [focusMinutes, setFocusMinutes] = useState(25);
   const [focusSeconds, setFocusSeconds] = useState(25 * 60);
   const [focusRunning, setFocusRunning] = useState(false);
+  const [installPrompt, setInstallPrompt] = useState(window.taskflowDeferredInstallPrompt);
+  const [appInstalled, setAppInstalled] = useState(window.matchMedia("(display-mode: standalone)").matches);
+  const showInstallPanel = new URLSearchParams(window.location.search).has("install");
+
+  useEffect(() => {
+    function handleInstallPromptAvailable() {
+      setInstallPrompt(window.taskflowDeferredInstallPrompt);
+    }
+    function handleAppInstalled() {
+      setInstallPrompt(null);
+      setAppInstalled(true);
+    }
+    window.addEventListener("taskflowinstallprompt", handleInstallPromptAvailable);
+    window.addEventListener("appinstalled", handleAppInstalled);
+    return () => {
+      window.removeEventListener("taskflowinstallprompt", handleInstallPromptAvailable);
+      window.removeEventListener("appinstalled", handleAppInstalled);
+    };
+  }, []);
+
+  async function handleInstall() {
+    if (!installPrompt) return;
+    await installPrompt.prompt();
+    const { outcome } = await installPrompt.userChoice;
+    window.taskflowDeferredInstallPrompt = null;
+    setInstallPrompt(null);
+    if (outcome === "accepted") setAppInstalled(true);
+  }
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify({ ...state, profileName }));
@@ -134,6 +162,23 @@ export default function WebAppPage() {
 
   return (
     <main className="taskflow-web-app">
+      {(showInstallPanel || installPrompt) && (
+        <div className="tf-install-panel" role="region" aria-label="Instalare TaskFlow">
+          <div>
+            <strong>{appInstalled ? "TaskFlow este instalat" : "Instalează TaskFlow pe Windows"}</strong>
+            <span>
+              {appInstalled
+                ? "Poți deschide aplicația din meniul Start."
+                : installPrompt
+                  ? "Deschide TaskFlow ca aplicație desktop."
+                  : "În Edge sau Chrome, deschide meniul ••• sau Apps și alege „Instalează TaskFlow”."}
+            </span>
+          </div>
+          {!appInstalled && installPrompt && (
+            <button type="button" onClick={handleInstall}>Instalează aplicația</button>
+          )}
+        </div>
+      )}
       <aside className="tf-sidebar">
         <a className="tf-brand" href="/" aria-label="TaskFlow home">
           <span className="brand-mark"><span /><span /><span /></span>

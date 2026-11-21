@@ -90,7 +90,8 @@ export default function GetStartedPage() {
 
   async function handleWindowsInstall() {
     if (!installPrompt) {
-      setShowInstallHelp((visible) => !visible);
+      setShowInstallHelp(true);
+      window.open("/app?install=1", "_blank", "noopener,noreferrer");
       return;
     }
 
