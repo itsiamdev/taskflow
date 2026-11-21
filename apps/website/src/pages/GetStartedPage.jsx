@@ -103,7 +103,7 @@ export default function GetStartedPage() {
               </p>
             </div>
             <div className="download-options">
-              <a className="download-option download-web" href="/#product">
+              <a className="download-option download-web" href="/app">
                 <span className="download-option-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none">
                     <rect x="3.5" y="4.5" width="17" height="12" rx="2" />

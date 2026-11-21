@@ -18,6 +18,7 @@ import HelpCenterPage from "./pages/HelpCenterPage.jsx";
 import DocumentationPage from "./pages/DocumentationPage.jsx";
 import DeveloperPage from "./pages/DeveloperPage.jsx";
 import BlogPage, { getBlogArticleBySlug } from "./pages/BlogPage.jsx";
+import WebAppPage from "./pages/WebAppPage.jsx";
 
 export default function App() {
   const path = window.location.pathname.replace(/\/+$/, "") || "/";
@@ -26,7 +27,9 @@ export default function App() {
 
   useEffect(() => {
     const pageTitle =
-      path === "/privacy-policy"
+      path === "/app"
+        ? "TaskFlow App"
+        : path === "/privacy-policy"
         ? "Privacy Policy"
         : path === "/terms-of-service"
           ? "Terms of Service"
@@ -65,6 +68,11 @@ export default function App() {
 
   if (path === "/get-started") {
     return <GetStartedPage />;
+  }
+
+  if (path === "/app") {
+    document.title = "TaskFlow App";
+    return <WebAppPage />;
   }
 
   if (path === "/help-center") {
