@@ -1,4 +1,4 @@
-const CACHE_NAME = "taskflow-shell-v1";
+const CACHE_NAME = "taskflow-shell-v2";
 const CORE_URLS = [
   "/",
   "/app",

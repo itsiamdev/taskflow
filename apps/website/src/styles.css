@@ -393,13 +393,7 @@ button.download-option:disabled { cursor: not-allowed; opacity: .68; }
 .download-option-icon { display: grid; flex: 0 0 46px; place-items: center; width: 46px; height: 46px; border-radius: 14px; color: #6957d1; background: #f0edff; box-shadow: inset 0 0 0 1px rgba(118, 100, 223, .06); }
 .download-option-icon svg { width: 26px; height: 26px; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.55; }
 .play-icon { color: #329c71; background: #eaf8f1; }
-.play-icon svg { fill: currentColor; stroke: none; }
 .play-icon img { width: 27px; height: 27px; object-fit: contain; }
-.play-icon .play-main { fill: #4285f4; }
-.play-icon .play-blue { fill: #34a853; }
-.play-icon .play-green { fill: #fbbc04; }
-.play-icon .play-yellow { fill: #ea4335; }
-.play-icon .play-red { fill: #fbbc04; }
 .windows-icon { color: #1683d8; background: #eaf5ff; }
 .windows-icon svg { fill: currentColor; stroke: none; }
 .download-option-copy { display: flex; flex: 1; flex-direction: column; gap: 4px; min-width: 0; }
